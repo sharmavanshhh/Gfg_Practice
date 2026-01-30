@@ -4,7 +4,6 @@ class Solution {
         // code here
         int largest = arr[0];
         int slargest = -1;
-        
         for(int i=0; i<arr.size(); i++){
             if(arr[i] > largest){
                 slargest = largest;
