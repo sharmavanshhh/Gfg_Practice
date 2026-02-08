@@ -1,16 +1,20 @@
 class Solution {
-  public:
-    // Please change the array in-place
+public:
     void insertionSort(vector<int>& arr) {
-        // code here
-        for(int i=1; i<arr.size(); i++){
+        int n = arr.size();
+
+        for(int i = 1; i < n; i++){
             int key = arr[i];
-            int j = i-1;
-            while(j>=0 && arr[j] > key){
-                arr[j+1] = arr[j];
-                j -= 1;
+            int j = i - 1;
+
+            // shift bigger elements to right
+            while(j >= 0 && arr[j] > key){
+                arr[j + 1] = arr[j];
+                j--;
             }
-            arr[j+1] = key;
+
+            // insert at correct place
+            arr[j + 1] = key;
         }
     }
 };
