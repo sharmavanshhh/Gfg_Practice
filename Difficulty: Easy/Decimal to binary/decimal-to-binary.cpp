@@ -1,14 +1,16 @@
-// User function Template for C++
-
-void toBinary(int n) {
-    // your code here
-    string ans = "";
-    while(n>0){
-        int temp = n%2;
-        char bit = temp + '0';
-        ans += bit;
-        n /= 2;
+class Solution {
+  public:
+    string decToBinary(int n) {
+        // code here
+        string ans = "";
+        while(n > 0){
+            int rem = n % 2;
+            // cout << ans << endl;
+            ans += (rem + '0');
+            n /= 2;
+        }
+        
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
-    reverse(ans.begin(), ans.end());
-    cout << ans;
-}
+};
