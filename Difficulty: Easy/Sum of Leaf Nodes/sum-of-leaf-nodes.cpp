@@ -15,21 +15,12 @@ struct Node
 // Function to return a list containing the level order traversal in spiral form.
 class Solution {
   public:
-    void traverse(Node* root, int& sum){
-        if(!root){
-            return;
-        }
-        if(root->left == nullptr && root->right == nullptr){
-            sum += root->data;
-        }
-        traverse(root->left, sum);
-        traverse(root->right, sum);
-    }
-    
     int leafSum(Node* root) {
-        // write code here
-        int sum = 0;
-        traverse(root, sum);
-        return sum;
+        // code here
+        if(!root) return 0;
+        
+        if(!root->left && !root->right) return root->data;
+        
+        return leafSum(root->left) + leafSum(root->right);
     }
 };
