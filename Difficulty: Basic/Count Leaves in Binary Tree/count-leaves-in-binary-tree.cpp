@@ -11,21 +11,13 @@ struct Node
 class Solution {
   public:
     // Function to count the number of leaf nodes in a binary tree.
-    void traverse(Node* root, int& count){
-        if(!root){
-            return;
-        }
-        if(root->left == nullptr && root->right == nullptr){
-            count++;
-        }
-        traverse(root->left, count);
-        traverse(root->right, count);
-    }
-    
+    int leaves = 0;
     int countLeaves(Node* root) {
         // write code here
-        int count = 0;
-        traverse(root, count);
-        return count;
+        if(!root) return 0;
+        
+        if(!root->left && !root->right) return 1;
+        
+        return countLeaves(root->left) + countLeaves(root->right);
     }
 };
